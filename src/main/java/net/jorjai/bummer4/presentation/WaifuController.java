@@ -1,5 +1,6 @@
 package net.jorjai.bummer4.presentation;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -55,8 +56,12 @@ public class WaifuController {
             // Search for a waifu
             List<net.jorjai.bummer4.domain.Image> imageList =businessLogic.search(categoryComboBox.getValue());
             net.jorjai.bummer4.domain.Image waifuImage = imageList.getFirst();
-            Image fxImage = new Image(waifuImage.getUrl());
-            imageView.setImage(fxImage);
+
+            // Update the imageView
+            new Thread(() -> {
+                Image fxImage = new Image(waifuImage.getUrl());
+                Platform.runLater(() -> imageView.setImage(fxImage));
+            }).start();
 
             // Update the infoVBox
             infoVBox.getChildren().setAll(FXCollections.observableArrayList(generateDetailBoxes(waifuImage)));
