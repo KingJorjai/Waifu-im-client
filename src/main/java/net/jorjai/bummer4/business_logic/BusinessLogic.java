@@ -1,7 +1,8 @@
 package net.jorjai.bummer4.business_logic;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import net.jorjai.bummer4.domain.Image;
+import net.jorjai.bummer4.domain.SearchResponse;
 import net.jorjai.bummer4.domain.Tag;
 import net.jorjai.bummer4.domain.TagResponse;
 import okhttp3.OkHttpClient;
@@ -20,8 +21,6 @@ public class BusinessLogic implements BlInterface {
     }
 
     private TagResponse getTagResponse() {
-        List<Tag> tags = new ArrayList<>();
-
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url + "/tags?full=true")
@@ -34,7 +33,6 @@ public class BusinessLogic implements BlInterface {
             String responseData = response.body().string();
             System.out.println(responseData);
 
-            // Access "versatile" object using gson
             Gson gson = new Gson();
             TagResponse tagResponse = gson.fromJson(responseData, TagResponse.class);
 
@@ -58,5 +56,32 @@ public class BusinessLogic implements BlInterface {
         TagResponse tagResponse = getTagResponse();
         if (tagResponse == null) return new ArrayList<>();
         return tagResponse.getNsfw();
+    }
+
+    @Override
+    public List<Image> search(Tag tag) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url + "/search?tag=" + tag.getName())
+                .build();
+
+        // Add searchQuery parameters
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+
+            // Process the response
+            String responseData = response.body().string();
+            System.out.println(responseData);
+
+            // Deserialize the response
+            Gson gson = new Gson();
+            SearchResponse searchResponse = gson.fromJson(responseData, SearchResponse.class);
+
+            return searchResponse.getImages();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
