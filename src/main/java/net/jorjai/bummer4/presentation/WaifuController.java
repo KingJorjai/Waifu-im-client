@@ -1,4 +1,4 @@
-package net.jorjai.bummer4;
+package net.jorjai.bummer4.presentation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

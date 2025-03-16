@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<StackPane prefHeight="480.0" prefWidth="531.0" stylesheets="@bootstrapfx.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.jorjai.bummer4.WaifuController">
+<StackPane prefHeight="480.0" prefWidth="531.0" stylesheets="@bootstrapfx.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.jorjai.bummer4.presentation.WaifuController">
    <children>
       <BorderPane styleClass="panel-primary">
          <top>

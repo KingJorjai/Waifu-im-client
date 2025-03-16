@@ -3,6 +3,6 @@ module net.jorjai.bummer4 {
     requires javafx.fxml;
 
 
-    opens net.jorjai.bummer4 to javafx.fxml;
-    exports net.jorjai.bummer4;
+    opens net.jorjai.bummer4.presentation to javafx.fxml;
+    exports net.jorjai.bummer4.presentation;
 }
