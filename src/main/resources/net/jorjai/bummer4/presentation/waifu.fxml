@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<StackPane prefHeight="576.0" prefWidth="1028.0" stylesheets="@bootstrapfx.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.jorjai.bummer4.presentation.WaifuController">
+<StackPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@bootstrapfx.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.jorjai.bummer4.presentation.WaifuController">
    <children>
       <BorderPane styleClass="panel-primary">
          <center>
