@@ -11,7 +11,7 @@ public class WaifuApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(WaifuApplication.class.getResource("waifu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 620, 540);
+        Scene scene = new Scene(fxmlLoader.load(), 1028, 576);
         stage.setTitle("Waifu.im - Client");
         stage.setScene(scene);
         stage.setMinHeight(scene.getHeight());
