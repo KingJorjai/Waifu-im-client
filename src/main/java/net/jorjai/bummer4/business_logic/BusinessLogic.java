@@ -64,7 +64,7 @@ public class BusinessLogic implements BlInterface {
         Request request;
         if (tag != null) {
             request = new Request.Builder()
-                    .url(url + "/search?tag=" + tag.getName())
+                    .url(url + "/search?included_tags=" + tag.getName())
                     .build();
         } else {
             request = new Request.Builder()
