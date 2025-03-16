@@ -72,7 +72,6 @@ public class BusinessLogic implements BlInterface {
                     .build();
         }
 
-        // Add searchQuery parameters
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 

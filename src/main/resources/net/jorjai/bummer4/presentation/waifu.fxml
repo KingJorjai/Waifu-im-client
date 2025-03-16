@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<StackPane prefHeight="723.0" prefWidth="1005.0" stylesheets="@bootstrapfx.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.jorjai.bummer4.presentation.WaifuController">
+<StackPane prefHeight="610.0" prefWidth="1054.0" stylesheets="@bootstrapfx.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.jorjai.bummer4.presentation.WaifuController">
    <children>
       <BorderPane styleClass="panel-primary">
          <center>
-            <ScrollPane prefHeight="478.0" prefWidth="453.0" BorderPane.alignment="CENTER">
+            <ScrollPane BorderPane.alignment="CENTER">
                <content>
                   <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true" />
                </content>
@@ -58,12 +58,22 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <Button fx:id="searchButton" alignment="CENTER" mnemonicParsing="false" text="Find your next waifu!" textAlignment="CENTER">
-                     <styleClass>
-                        <String fx:value="btn" />
-                        <String fx:value="btn-primary" />
-                     </styleClass>
-                  </Button>
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <Button fx:id="backButton" alignment="CENTER" disable="true" mnemonicParsing="false" text="Previous" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="searchButton" alignment="CENTER" mnemonicParsing="false" text="Find your next waifu!" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </HBox>
                   <Separator prefWidth="200.0" />
                   <VBox fx:id="infoVBox" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="panel-primary" VBox.vgrow="ALWAYS">
                      <padding>
