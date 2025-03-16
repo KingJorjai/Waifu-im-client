@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import lombok.Getter;
 import net.jorjai.bummer4.business_logic.BlInterface;
 import net.jorjai.bummer4.business_logic.BusinessLogic;
@@ -24,6 +25,7 @@ public class WaifuController {
     private ComboBox<Tag> categoryComboBox;
 
     @FXML
+    @Getter
     private ImageView imageView;
 
     @FXML
