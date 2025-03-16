@@ -7,6 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import net.jorjai.bummer4.business_logic.BlInterface;
 import net.jorjai.bummer4.business_logic.BusinessLogic;
 import net.jorjai.bummer4.domain.Tag;
@@ -27,6 +28,9 @@ public class WaifuController {
     @FXML
     private Button searchButton;
 
+    @FXML
+    VBox infoVBox;
+
     private BlInterface businessLogic;
 
     public void initialize() {
@@ -35,7 +39,7 @@ public class WaifuController {
         // Set the items of the categoryComboBox to the versatile tags (default)
         categoryComboBox.setItems(FXCollections.observableArrayList(businessLogic.getVersatileTags()));
 
-        // Set listeners
+        // Handle nsfwCheckBox selection to update the tags
         nsfwCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 categoryComboBox.setItems(FXCollections.observableArrayList(businessLogic.getNsfwTags()));
@@ -43,6 +47,8 @@ public class WaifuController {
                 categoryComboBox.setItems(FXCollections.observableArrayList(businessLogic.getVersatileTags()));
             }
         });
+
+        // Handle search button click
         searchButton.setOnAction(btnEvent -> {
             // Search for a waifu
             List<net.jorjai.bummer4.domain.Image> imageList =businessLogic.search(categoryComboBox.getValue());

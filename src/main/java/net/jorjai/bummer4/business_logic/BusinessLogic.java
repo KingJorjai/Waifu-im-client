@@ -61,9 +61,16 @@ public class BusinessLogic implements BlInterface {
     @Override
     public List<Image> search(Tag tag) {
         OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url + "/search?tag=" + tag.getName())
-                .build();
+        Request request;
+        if (tag != null) {
+            request = new Request.Builder()
+                    .url(url + "/search?tag=" + tag.getName())
+                    .build();
+        } else {
+            request = new Request.Builder()
+                    .url(url + "/search")
+                    .build();
+        }
 
         // Add searchQuery parameters
         try (Response response = client.newCall(request).execute()) {
