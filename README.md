@@ -10,7 +10,7 @@
 
 Designed to provide a fast and immersive experience, it allows you to _explore thousands of images instantly_, filter by favorite tags, and enjoy otaku aesthetics in every corner of the application.
 
-🌟 Enjoy an intuitive interface and reliable performance to unleash all your passion for the _world of anime_. 🌟
+🌟 Enjoy an intuitive interface and reliable performance to unleash all your passion for the _world of anime_.
 
 ## Features ✨
 - ⚡ **Fast and Responsive**: The application is designed to be fast and responsive, using _multithreading_ to load images and provide a smooth user experience.
